@@ -1,0 +1,68 @@
+{namespace gg=TYPO3\GenericGallery\ViewHelpers}
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+     xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+	 xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers">
+
+	<f:layout name="Default" />
+
+	<f:section name="main">
+        <div class="slick-slider-wrapper">
+            <div class="slider-for">
+                <f:for each="{collection}" as="item" iteration="iterator">
+                    <f:if condition="{item}">
+                        <div>
+                            <f:image image="{f:if(condition: '{item.imageReference}', then: '{item.imageReference}', else: '{item.image}')}"
+                                              title="{item.imageData.title}"
+                                              alt="{item.imageData.alternative}"/>
+                        </div>
+                    </f:if>
+                </f:for>
+            </div>
+
+            <div class="slider-nav">
+                <f:for each="{collection}" as="item" iteration="iterator">
+                    <f:if condition="{item}">
+                        <div>
+                            <f:image
+                                width="140"
+                                image="{f:if(condition: '{item.imageReference}', then: '{item.imageReference}', else: '{item.image}')}"
+                                alt="{item.imageData.alternative}"/>
+                        </div>
+                    </f:if>
+                </f:for>
+            </div>
+        </div>
+		<v:asset.script>
+			$('.slider-for').slick({
+                autoplay: false,
+                autoplaySpeed: 4000,
+                centerMode: true,
+                centerPadding: '60px',
+                slidesToShow: 1,
+                lazyLoad: 'ondemand',
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				arrows: false,
+				fade: true,
+				asNavFor: '.slider-nav'
+			});
+			$('.slider-nav').slick({
+                slidesToShow: 5,
+				slidesToScroll: 1,
+				asNavFor: '.slider-for',
+				dots: false,
+				centerMode: true,
+				focusOnSelect: true,
+                responsive: [
+                    {
+                        breakpoint: 650,
+                        settings: {
+                            slidesToShow: 3
+                        }
+                    }
+                ]
+			});
+		</v:asset.script>
+	</f:section>
+
+</div>

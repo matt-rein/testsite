@@ -1,0 +1,97 @@
+plugin.tx_testsite {
+	view {
+		templateRootPaths.0 = {$plugin.tx_testsite.view.templateRootPath}
+		partialRootPaths.0 = {$plugin.tx_testsite.view.partialRootPath}
+		layoutRootPaths.0 = {$plugin.tx_testsite.view.layoutRootPath}
+	}
+
+	settings{
+		extName = Testsite
+	}
+
+	_CSS_DEFAULT_STYLE (
+	.ce-gallery-inline-right {padding-left:  1rem;}
+    .ce-gallery-inline-left  {padding-right: 1rem;}
+	)
+}
+
+#### config Fluid Styled Content [Start] ####
+lib.contentElement {
+	templateRootPaths {
+		200 = EXT:testsite/Resources/Private/Templates/FluidContent/
+	}
+	partialRootPaths {
+		200 = EXT:testsite/Resources/Private/Partials/FluidContent/
+	}
+	layoutRootPaths {
+		200 = EXT:testsite/Resources/Private/Layouts/FluidContent/
+	}
+}
+
+tt_content.textmedia {
+	dataProcessing {
+		30 = MREIT\Testsite\DataProcessing\GridProcessor
+		30 {
+			foundation_grid_size = 12
+			wrap_element_uid = 0
+			max_image_width = 1280
+		}
+	}
+}
+#### config Fluid Styled Content [End] ####
+
+#### für Foundation 6 angepasstest pagination Layout
+config.tx_extbase.view.widget.TYPO3\CMS\Fluid\ViewHelpers\Widget\PaginateViewHelper.templateRootPath = {$plugin.tx_testsite.view.layoutRootPath}
+
+#### config [Start] ####
+
+config {
+	doctype                             = html5
+	renderCharset                       = utf-8
+	metaCharset                         = utf-8
+	pageNotFound_handling               = 1
+	xhtml_cleaning                      = all
+
+	removeDefaultJS                     = external
+	inlineStyle2TempFile                = 1
+
+	language                            = de
+	locale_all                          = de_DE.UTF-8
+	htmlTag_langKey                     = de
+	admPanel                            = 0
+	debug                               = 0
+	#no_cache = 1 ist boese
+	no_cache                            = 1
+	cache_period                        = 43200
+	cache_clearAtMidnight               = 1
+	sendCacheHeaders                    = 1
+	#simulateStaticDocuments            = 0
+	disablePrefixComment                = 1
+
+	spamProtectEmailAddresses           = 2
+	# unsichtbare html tag in Email - Sicherung gegen Bots
+	spamProtectEmailAddresses_atSubst   = <span style="display: none;">noSpam</span>@
+	#spamProtectEmailAddresses_atSubst   = [at]
+
+	absRefPrefix = /
+}
+#### config [END] ####
+######################
+
+
+#### page [Start] ####
+page {
+	meta {
+		viewport = width=device-width, initial-scale=1.0
+	}
+	shortcutIcon = typo3conf/ext/testsite/Resources/Public/Icons/ICON_32x32_Logo.ico
+}
+#### page [END] ####
+
+
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:testsite/Configuration/TypoScript/TSIncludes/tx_news.ts" extensions="ts">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:testsite/Configuration/TypoScript/TSIncludes/tx_genericgallery.ts" extensions="ts">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:testsite/Configuration/TypoScript/TSIncludes/tx_sessionpopup.ts" extensions="ts">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:testsite/Configuration/TypoScript/TSIncludes/tx_cookieconsent2.ts" extensions="ts">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:testsite/Configuration/TypoScript/TSIncludes/tx_min.ts" extensions="ts">
+

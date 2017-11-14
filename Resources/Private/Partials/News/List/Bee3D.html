@@ -1,0 +1,56 @@
+{namespace n=GeorgRinger\News\ViewHelpers}
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+     xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+     xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers">
+
+    <f:section name="bee3D">
+        <div id="news-slider" class="bee3D--parent">
+            <f:for each="{news}" as="newsItem" iteration="iterator">
+                <div class="bee3D--slide">
+                    <f:if condition="{newsItem.falMediaPreviews}">
+                        <f:then>
+                            <f:alias map="{mediaElement: newsItem.falMediaPreviews.0}">
+                                <f:if condition="{mediaElement.originalResource.type} == 2">
+                                    <f:image image="{mediaElement}" class="rsImg" crop="c"
+                                             title="{mediaElement.originalResource.title}"
+                                             alt="{mediaElement.originalResource.alternative}"
+                                                width="520px" height="380px"/>
+                                </f:if>
+                            </f:alias>
+                        </f:then>
+                        <f:else>
+                            <f:if condition="{settings.displayDummyIfNoMedia}">
+                                <span class="no-media-element">
+                                    <f:image
+                                            src="{settings.list.media.dummyImage}"
+                                            title=""
+                                            alt=""
+                                            class="rsImg"
+                                    />
+                                </span>
+                            </f:if>
+                        </f:else>
+                    </f:if>
+                    <div class="bee3D--slideTextContent">
+                        <time class="float-right" datetime="{f:format.date(date:newsItem.datetime, format:'Y-m-d')}">
+                            <f:format.date format="{f:translate(key:'dateFormat')}">{newsItem.datetime}</f:format.date>
+                            <meta itemprop="datePublished" content="{f:format.date(date:newsItem.datetime, format:'Y-m-d')}" />
+                        </time>
+                        <h3>{newsItem.title}</h3>
+                        <f:if condition="{newsItem.teaser}">
+                            <f:then>
+                                <p itemprop="description">{newsItem.teaser -> f:format.crop(maxCharacters: '{settings.cropMaxCharacters}', respectWordBoundaries:'1') -> f:format.html()}</p>
+                            </f:then>
+                            <f:else>
+                                <p itemprop="description">{newsItem.bodytext -> f:format.crop(maxCharacters: '{settings.cropMaxCharacters}', respectWordBoundaries:'1') -> f:format.stripTags()}</p>
+                            </f:else>
+                        </f:if>
+                        <n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}" class="more float-right">[mehr lesen]</n:link>
+                    </div>
+                </div>
+            </f:for>
+            <span class="bee3D--nav bee3D--nav__prev slick-prev"></span>
+            <span class="bee3D--nav bee3D--nav__next slick-next"></span>
+        </div>
+    </f:section>
+</div>

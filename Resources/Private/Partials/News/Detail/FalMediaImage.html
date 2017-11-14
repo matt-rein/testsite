@@ -1,0 +1,28 @@
+{namespace n=GeorgRinger\News\ViewHelpers}
+<div class="mediaelement mediaelement-image">
+	<f:if condition="{mediaElement.link}">
+		<f:then>
+			<f:link.page pageUid="{mediaElement.link}">
+				<f:image src="{mediaElement.uid}" treatIdAsReference="1" title="{mediaElement.title}" alt="{mediaElement.alternative}" maxWidth="{settings.detail.media.image.maxWidth}" maxHeight="{settings.detail.media.image.maxHeight}" />
+			</f:link.page>
+		</f:then>
+		<f:else>
+			<f:if condition="{settings.detail.media.image.lightbox.enabled}">
+				<f:then>
+					<a href="#"  data-reveal-id="revealImg" class="th">
+						<f:image src="{mediaElement.uid}" treatIdAsReference="1" title="{mediaElement.title}" alt="{mediaElement.alternative}" maxWidth="{settings.detail.media.image.maxWidth}" maxHeight="{settings.detail.media.image.maxHeight}" />
+					</a>
+					<div id="revealImg" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+						<f:if condition="{mediaElement.title}"><h2>{mediaElement.title}</h2></f:if>
+						<f:image src="{mediaElement.uid}" treatIdAsReference="1" title="{mediaElement.title}" alt="{mediaElement.alternative}" style="display:block; margin:0 auto;"/>
+						<f:if condition="{mediaElement.description}"><p style="margin-top: 10px"><b>{mediaElement.description}</b></p></f:if>
+						<a class="close-reveal-modal" aria-label="Close">&#215;</a>
+					</div>
+				</f:then>
+				<f:else>
+					<f:image src="{mediaElement.uid}" treatIdAsReference="1" alt="{mediaElement.alternative}" maxWidth="{settings.detail.media.image.maxWidth}" maxHeight="{settings.detail.media.image.maxHeight}" />
+				</f:else>
+			</f:if>
+		</f:else>
+	</f:if>
+</div>

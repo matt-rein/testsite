@@ -1,0 +1,17 @@
+plugin.tx_testsite.view {
+	templateRootPath = EXT:testsite/Resources/Private/Templates/
+	partialRootPath = EXT:testsite/Resources/Private/Partials/
+	layoutRootPath = EXT:testsite/Resources/Private/Layouts/
+}
+
+
+
+styles {
+  content {
+    textmedia {
+      linkWrap {
+        lightboxEnabled = 1
+      }
+    }
+  }
+}

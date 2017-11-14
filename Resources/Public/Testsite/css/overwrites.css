@@ -1,0 +1,62 @@
+/**
+ * Foundation for Sites by ZURB
+ * Version 6.3.1
+ * foundation.zurb.com
+ * Licensed under MIT Open Source
+ */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600);
+/*** myVariables ***/
+/**************************************/
+/**************************************/
+/**************************************/
+main {
+  padding: 20px 0; }
+
+.pagination li {
+  margin-left: 10px; }
+
+.pagination .disabled a {
+  color: #cacaca;
+  cursor: not-allowed; }
+
+.pagination-previous.disabled::before,
+.pagination-next.disabled::after {
+  content: '';
+  display: none; }
+
+.pagination-previous.disabled a::before {
+  content: '\00ab'; }
+
+.pagination-next.disabled a::after {
+  content: '\00bb'; }
+
+.ce-gallery-inline-right {
+  padding-left: 20px; }
+
+.ce-gallery-inline-left {
+  padding-right: 20px; }
+
+.ce-border {
+  margin-top: 1px; }
+
+.ce-border img, .ce-border iframe {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  border: solid 4px #fefefe;
+  border-radius: 0;
+  box-shadow: 0 0 0 1px rgba(10, 10, 10, 0.2);
+  line-height: 0;
+  margin: 1px; }
+
+@media screen and (min-width: 40em) {
+  .ce-gallery-inline-right {
+    padding-left: 30px; }
+  .ce-gallery-inline-left {
+    padding-right: 30px; } }
+
+@media screen and (min-width: 64em) {
+  .ce-gallery-inline-right {
+    padding-left: 30px; }
+  .ce-gallery-inline-left {
+    padding-right: 30px; } }

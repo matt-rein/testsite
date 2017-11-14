@@ -1,0 +1,89 @@
+@import 'settings';
+@import 'foundation';
+@import 'util/mixins';
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600);
+
+
+
+// _functions.scss
+// get responsiv gutter (small, medium, large)
+@function gutter($key) {
+  @if map-has_key($grid-column-gutter, $key) {
+    @return map-get($grid-column-gutter, $key);
+  }
+
+  @warn "Unkown '#{$key}' in $grid-column-responsive-gutter";
+  @return null;
+}
+
+/*** myVariables ***/
+
+
+
+/**************************************/
+/**************************************/
+/**************************************/
+
+
+@include breakpoint(small up) {
+  //Small and up styles
+
+  main {padding: gutter(small) 0;}
+
+  // START Anpassung für Pagination
+  .pagination li {margin-left: 10px;}
+  .pagination .disabled a {color: #cacaca; cursor: not-allowed;}
+
+  .pagination-previous.disabled::before,
+  .pagination-next.disabled::after{content: ''; display: none; }
+
+  .pagination-previous.disabled a::before {content: '\00ab'; }
+  .pagination-next.disabled a::after {content: '\00bb'; }
+  // ENDE Anpassung Pagination
+
+  // START Content Element
+  .ce-gallery-left {}
+  .ce-gallery-center {}
+  .ce-gallery-right {}
+
+  .ce-gallery-inline-right {padding-left:  gutter(small);}
+  .ce-gallery-inline-left  {padding-right: gutter(small);}
+
+  .ce-border {margin-top: 1px;}
+  .ce-border img, .ce-border iframe {@include thumbnail; margin: 1px;}
+
+  // ENDE Content Element
+
+  // END Small  END Small  END Small  END Small  END Small
+}
+
+@include breakpoint(medium up) {
+  // Medium and up styles
+
+  // START Content Element
+  .ce-gallery-inline-right {padding-left:  gutter(medium);}
+  .ce-gallery-inline-left  {padding-right: gutter(medium);}
+  // ENDE Content Element
+
+  // END Medium  END Medium  END Medium  END Medium  END Medium
+}
+
+@include breakpoint(large up) {
+  // Large and up styles
+
+
+  // START Content Element
+  .ce-gallery-inline-right {padding-left:  gutter(large);}
+  .ce-gallery-inline-left  {padding-right: gutter(large);}
+  // ENDE Content Element
+
+  // END Large  END Large  END Large  END Large  END Large
+}
+
+
+@include breakpoint(xlarge up) {
+  // Xlarge and up styles
+
+  // END Xlarge  END Xlarge  END Xlarge  END Xlarge  END Xlarge
+}

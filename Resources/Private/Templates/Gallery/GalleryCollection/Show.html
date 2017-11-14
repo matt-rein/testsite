@@ -1,0 +1,23 @@
+{namespace gg=TYPO3\GenericGallery\ViewHelpers}
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+	 xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers">
+
+	<f:layout name="Default" />
+
+	<f:section name="main">
+		<f:widget.paginate objects="{collection}" as="items" configuration="{itemsPerPage: 12}">
+			<div class="row small-up-2 medium-up-3 large-up-4">
+				<f:for each="{items}" as="item" iteration="iterator">
+                    <f:if condition="{item}">
+                        <div class="column column-block">
+                            <figure>
+                                <f:render partial="GalleryItem/Image" section="Main" arguments="{_all}" />
+                            </figure>
+                        </div>
+                    </f:if>
+				</f:for>
+			</div>
+		</f:widget.paginate>
+	</f:section>
+
+</div>

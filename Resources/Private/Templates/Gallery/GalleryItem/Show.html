@@ -1,0 +1,53 @@
+{namespace gg=TYPO3\GenericGallery\ViewHelpers}
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+	 xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers">
+
+	<f:layout name="Default" />
+
+	<f:section name="main">
+
+		<div class="row">
+			<div class="small-12 columns">
+				<figure>
+					<f:image
+						width="1024m"
+						height="800m"
+						image="{f:if(condition: '{item.imageReference}', then: '{item.imageReference}', else: '{item.image}')}"
+						alt="{item.imageData.alternative}" />
+
+					<figcaption class="caption">
+						<p class="">
+							<f:render partial="GalleryItem/Copyright" arguments="{_all}" />
+						</p>
+						<p>
+                            <f:if condition="{item.title}">
+                                <f:then>
+                                    {item.title}
+                                </f:then>
+                                <f:else>
+                                    {item.imageData.title}
+                                </f:else>
+                            </f:if>
+						</p>
+						<f:if condition="{item.imageData.description}">
+							<p>
+								{item.image.properties.description}
+							</p>
+						</f:if>
+					</figcaption>
+				</figure>
+
+				<f:if condition="{item.textItems}">
+					<ul class="list-group">
+						<f:for each="{item.textItems}" as="textItem">
+							<li class="list-group-item">
+								<f:format.html>{textItem.bodytext}</f:format.html>
+							</li>
+						</f:for>
+					</ul>
+				</f:if>
+			</div>
+		</div>
+
+	</f:section>
+</div>

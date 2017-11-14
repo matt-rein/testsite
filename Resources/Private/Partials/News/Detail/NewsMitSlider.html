@@ -1,0 +1,45 @@
+{namespace n=GeorgRinger\News\ViewHelpers}
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+     xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+     xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers">
+
+    <f:section name="NewsMitSlider">
+        <div class="news-detail">
+            <div class="news-text">
+                <h2>{newsItem.title}</h2>
+                <div class="news-header">
+                    <time datetime="{f:format.date(date:newsItem.datetime, format:'Y-m-d')}">
+                        <f:format.date format="{f:translate(key:'dateFormat')}">{newsItem.datetime}</f:format.date>
+                        <meta itemprop="datePublished" content="{f:format.date(date:newsItem.datetime, format:'Y-m-d')}" />
+                    </time>
+                    <f:if condition="{newsItem.author}">
+                        <!-- author -->
+                            <span class="news-list-author" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+                                <f:translate key="author_simple" /> <span itemprop="name">{newsItem.author}</span>
+                            </span>
+                    </f:if>
+                </div>
+                <f:format.html>{newsItem.bodytext}</f:format.html>
+            </div>
+            <div class="news-slick" >
+
+                    <f:for each="{newsItem.falMedia}" as="mediaElement">
+                        <div class="slick-item">
+                            <f:image image="{mediaElement}" title="{mediaElement.title}" alt="{mediaElement.alternative}" />
+                        </div>
+                    </f:for>
+
+            </div>
+            <f:if condition="{settings.backPid}">
+                <!-- Link Back -->
+                <div class="news-backlink-wrap">
+                    <f:link.page pageUid="{settings.backPid}">
+                        <f:translate key="back-link" />
+                    </f:link.page>
+                </div>
+            </f:if>
+        </div>
+    </f:section>
+
+
+</div>

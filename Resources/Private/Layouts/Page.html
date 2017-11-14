@@ -1,0 +1,18 @@
+<f:layout name="Standard" />
+<f:render partial="Main" section="Init" arguments="{_all}"/>
+
+<div class="off-canvas position-right" id="offCanvas" data-off-canvas>
+    <f:render partial="Menu/Foundation6Menu" section="mobileMenu" arguments="{startUID: 1}"/>
+</div>
+<!-- Seiten Inhalt -->
+<div class="off-canvas-content" data-off-canvas-content>
+    <f:render partial="Main" section="Header" arguments="{_all}"/>
+    <f:render partial="Main" section="Nav" arguments="{_all}"/>
+    <f:render section="Main" />
+    <f:render partial="Main" section="Footer" arguments="{_all}"/>
+</div>
+
+
+
+
+

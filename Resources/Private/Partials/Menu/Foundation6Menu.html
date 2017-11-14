@@ -1,0 +1,210 @@
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+     xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+     xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+>
+
+
+    <!--
+    *********************************************
+    Haupt Menu [start]
+
+    Parameter
+    startUID: muss an das Partial übergeben werden Bsp: <f:render partial section="Menu" arguments="{startUID: 4}"/>
+    class: kann übergeben werden für zusätzliche css Classen am 'ul' Tag Bsp: <f:render partial section="Menu" arguments="{startUID: 4, class='vertical large-horizontal'}"/>
+    -->
+    <f:section name="Menu">
+        <ul class="{class} menu">
+            <v:page.menu pageUid="{startUID}" entryLevel="1" levels="1" expandAll="false" as="menu">
+                <f:for each="{menu}" as="item">
+                    <li class="{f:if(condition: item.active, then: 'is-active')}">
+                        <f:link.page pageUid="{item.uid}" title="{item.linktext}">{item.linktext}</f:link.page>
+                    </li>
+                </f:for>
+            </v:page.menu>
+        </ul>
+    </f:section>
+
+    <!--
+   Parameter
+   startUID: muss an das Partial übergeben werden Bsp: <f:render partial section="SubMenuMenu" arguments="{startUID: 4}"/>
+   class: kann übergeben werden für zusätzliche css Classen am 'ul' Tag Bsp: <f:render partial section="SubMenuMenu" arguments="{startUID: 4, class='vertical large-horizontal'}"/>
+   -->
+    <f:section name="SubMenuMenu">
+        <ul class="dropdown menu {class}" data-dropdown-menu data-close-on-click-inside="false">
+            <v:page.menu pageUid="{startUID}" entryLevel="1" levels="3" expandAll="true" as="menu">
+                <f:for each="{menu}" as="item">
+                    <f:if condition="{item.hasSubPages}">
+                        <f:then>
+                            <li class="">
+                                <f:link.page pageUid="{item.uid}" title="{item.linktext}" class="{f:if(condition: '{item.active}', then: 'is-active')}">{item.linktext}</f:link.page>
+                                <ul class="menu">
+                                    <f:render section="SubSub" arguments="{_all}"/>
+                                </ul>
+                            </li>
+                        </f:then>
+                        <f:else>
+                            <li>
+                                <f:link.page pageUid="{item.uid}" title="{item.linktext}" class="{f:if(condition: '{item.active}', then: 'is-active')}">{item.linktext}</f:link.page>
+                            </li>
+                        </f:else>
+                    </f:if>
+                </f:for>
+            </v:page.menu>
+        </ul>
+    </f:section>
+
+    <f:section name="SubSub">
+        <v:page.menu pageUid="{item.uid}" entryLevel="1" levels="1" as="submenu">
+            <f:for each="{submenu}" as="subitem">
+                <li>
+                    <f:link.page pageUid="{subitem.uid}" title="{subitem.linktext}" class="{f:if(condition: subitem.active, then: 'is-active')}">{subitem.linktext}</f:link.page>
+                </li>
+            </f:for>
+        </v:page.menu>
+    </f:section>
+
+    <!--
+    Haupt Menu [end]
+    *********************************************
+
+    *********************************************
+    Seiten Menu (ohne Untermenüs) [start]
+
+    Parameter
+    class: kann übergeben werden für zusätzliche css Classen am 'ul' Tag Bsp: <f:render partial section="Menu" arguments="{startUID: 4, class='vertical large-horizontal'}"/>
+    -->
+    <f:section name="sideNav">
+        <v:page.menu entryLevel="2" levels="1" expandAll="true" as="menu">
+            <div class="dropdown-button show-for-small-only">
+                <button class="button dropdown" type="button" data-toggle="example-dropdown">{page.title}</button>
+                <div class="dropdown-pane" id="example-dropdown" data-dropdown data-auto-focus="true">
+                    <div class="subnav">
+                        <ul class="vertical menu">
+                            <f:for each="{menu}" as="item">
+                                <f:if condition="{item.hasSubPages}">
+                                    <f:then>
+                                        <li>
+                                            <f:link.page pageUid="{item.uid}" title='{item.linktext}'>{item.linktext}
+                                            </f:link.page>
+                                            <ul class="menu large-vertical horizontal nested {f:if(condition: '{item.active}', then: 'active')}">
+                                                <f:render section="sideSubSub" arguments="{_all}"/>
+                                            </ul>
+                                        </li>
+                                    </f:then>
+                                    <f:else>
+                                        <li class="{f:if(condition: '{item.active}', then: 'is-active')}">
+                                            <f:link.page pageUid="{item.uid}" title="{item.linktext}">{item.linktext}
+                                            </f:link.page>
+                                        </li>
+                                    </f:else>
+                                </f:if>
+                            </f:for>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subnav hide-for-small-only">
+                <ul class="large-vertical horizontal menu ">
+                    <f:for each="{menu}" as="item">
+                        <f:if condition="{item.hasSubPages}">
+                            <f:then>
+                                <li>
+                                    <f:link.page pageUid="{item.uid}" title="{item.linktext}">{item.linktext}
+                                    </f:link.page>
+                                    <ul class="menu large-vertical horizontal nested {f:if(condition: '{item.active}', then: 'is-active')}">
+                                        <f:render section="sideSubSub" arguments="{_all}"/>
+                                    </ul>
+                                </li>
+                            </f:then>
+                            <f:else>
+                                <li class="{f:if(condition: '{item.active}', then: class='is-active')}">
+                                    <f:link.page pageUid="{item.uid}" title="{item.linktext}">{item.linktext}
+                                    </f:link.page>
+                                </li>
+                            </f:else>
+                        </f:if>
+                    </f:for>
+                </ul>
+            </div>
+        </v:page.menu>
+    </f:section>
+
+    <f:section name="sideSubSub">
+        <v:page.menu pageUid="{item.uid}" entryLevel="1" levels="1" as="submenu">
+            <f:for each="{submenu}" as="subitem">
+                <li class="{f:if(condition: subitem.active, then: 'is-active')}">
+                    <f:link.page pageUid="{subitem.uid}" title="{subitem.linktext}">{subitem.linktext}</f:link.page>
+                </li>
+            </f:for>
+        </v:page.menu>
+    </f:section>
+    <!--
+    Seiten Menu (ohne Untermenüs) [end]
+    *********************************************
+
+
+    *********************************************
+    Mobile Menu  [start]
+    -->
+    <f:section name="mobileMenu">
+        <v:page.menu pageUid="{startUID}" entryLevel="1" levels="3" expandAll="true" as="menu">
+            <ul class="vertical mobile menu" data-drilldown>
+                <f:for each="{menu}" as="item">
+                    <f:if condition="{item.hasSubPages}">
+                        <f:then>
+                            <li>
+                                <f:link.page pageUid="{item.uid}" title="{item.linktext}">{item.linktext}</f:link.page>
+                                <ul class="vertical menu nested {f:if(condition: '{item.active}', then: 'is-active')}">
+                                    <f:render section="mobileMenuSub" arguments="{startUID: item.uid}"/>
+                                </ul>
+                            </li>
+                        </f:then>
+                        <f:else>
+                            <li class="{f:if(condition: '{item.active}', then: 'is-active')}">
+                                <f:link.page pageUid="{item.uid}" title="{item.linktext}">{item.linktext}</f:link.page>
+                            </li>
+                        </f:else>
+                    </f:if>
+                </f:for>
+            </ul>
+        </v:page.menu>
+    </f:section>
+
+    <f:section name="mobileMenuSub">
+        <v:page.menu pageUid="{startUID}" entryLevel="1" levels="1" as="submenu">
+            <f:for each="{submenu}" as="subitem">
+                <li class="{f:if(condition: '{subitem.active}', then: 'is-active')}">
+                    <f:link.page pageUid="{subitem.uid}" title="{subitem.linktext}">{subitem.linktext}</f:link.page>
+                </li>
+            </f:for>
+        </v:page.menu>
+    </f:section>
+    <!--
+    Mobile Menu  [end]
+    *********************************************
+
+    *********************************************
+    Sprach Menu  [start]
+    -->
+    <f:section name="LangMenu">
+        <v:page.languageMenu defaultLanguageLabel="Deutsch" defaultIsoFlag="de" hideNotTranslated="true"
+                             flagPath="typo3conf/ext/{extName}/Resources/Public/Flags/" flagImageType="svg">
+            <ul class="lang-menu" {f:if(condition:
+            "{languageMenu.1}", then: "style='display:block'", else: "style='display:none'")}>
+            <f:for each="{languageMenu}" as="langmenu" iteration="langiter">
+                <li class="{f:if(condition: langmenu.current, then: 'is-active')}">
+                    <a href="{langmenu.url}">
+                        <img src="{langmenu.flagSrc}" alt="{langmenu.label}">
+                    </a>
+                </li>
+            </f:for>
+            </ul>
+        </v:page.languageMenu>
+    </f:section>
+    <!--
+    Sprach Menu  [end]
+    *********************************************
+    -->
+</div>
+

@@ -1,0 +1,59 @@
+{namespace n=GeorgRinger\News\ViewHelpers}
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+     xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+     xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+
+    <f:section name="ListBushido">
+        <f:for each="{news}" as="newsItem" iteration="iterator">
+            <n:excludeDisplayedNews newsItem="{newsItem}" />
+            <div class="row list-news-item collapse">
+                <div class="">
+                    <div class="small-12 medium-4 columns">
+                        <f:if condition="{newsItem.falMediaPreviews}">
+                            <f:then>
+                                <f:alias map="{mediaElement: newsItem.falMediaPreviews.0}">
+                                    <f:if condition="{mediaElement.originalResource.type} == 2">
+                                        <f:image image="{mediaElement}" title="{mediaElement.originalResource.title}"
+                                                 alt="{mediaElement.originalResource.alternative}"/>
+                                    </f:if>
+                                </f:alias>
+                            </f:then>
+                            <f:else>
+                                <f:if condition="{settings.displayDummyIfNoMedia}">
+                                    <span class="no-media-element">
+                                        <f:image src="{settings.list.media.dummyImage}" title="" alt=""/>
+                                    </span>
+                                </f:if>
+                            </f:else>
+                        </f:if>
+                    </div>
+
+                    <div class="small-12 medium-8 columns">
+                        <h3>{newsItem.title}</h3>
+                        <f:if condition="{newsItem.teaser}">
+                            <f:then>
+                                <p><span itemprop="description">{newsItem.teaser -> f:format.crop(maxCharacters: '{settings.cropMaxCharacters}', respectWordBoundaries:'1') -> f:format.html()}</span></p>
+                            </f:then>
+                            <f:else>
+                                <p><span itemprop="description">{newsItem.bodytext -> f:format.crop(maxCharacters: '{settings.cropMaxCharacters}', respectWordBoundaries:'1') -> f:format.stripTags()}</span></p>
+                            </f:else>
+                        </f:if>
+
+                        <n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}" class="more">[mehr lesen]</n:link>
+
+                        <time class="float-right" datetime="{f:format.date(date:newsItem.datetime, format:'Y-m-d')}">
+                            <f:format.date format="{f:translate(key:'dateFormat')}">{newsItem.datetime}</f:format.date>
+                            <meta itemprop="datePublished" content="{f:format.date(date:newsItem.datetime, format:'Y-m-d')}" />
+                        </time>
+
+                        <f:if condition="{newsItem.author}">
+                            <span class="news-list-author">
+                                <f:translate key="author" arguments="{0:newsItem.author}"/>
+                            </span>
+                        </f:if>
+                    </div>
+                </div>
+            </div>
+        </f:for>
+    </f:section>
+</div>

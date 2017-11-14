@@ -1,0 +1,36 @@
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+     xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+     xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+     xmlns:flux="http://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers">
+
+    <f:layout name="Content" />
+
+    <f:section name="Configuration">
+        <flux:form id="col5050" description="2 Spalten a 50%">
+            <flux:form.option name="icon" value="{f:uri.resource(path: 'Icons/icon-col5050.png')}" />
+            <flux:form.option name="group" value="Testsite" />
+
+            <flux:grid>
+                <flux:grid.row>
+                    <flux:grid.column name="left" style="width: 50%;" />
+                    <flux:grid.column name="right" style="width: 50%;" />
+                </flux:grid.row>
+            </flux:grid>
+        </flux:form>
+    </f:section>
+
+    <f:section name="Preview">
+        nix
+    </f:section>
+
+    <f:section name="Main">
+        <div class="row">
+            <div class="small-6 column">
+                <flux:content.render area="left" />
+            </div>
+            <div class="small-6 column">
+                <flux:content.render area="right" />
+            </div>
+        </div>
+    </f:section>
+</div>

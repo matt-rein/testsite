@@ -1,0 +1,58 @@
+
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+     xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+     xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers">
+
+    <f:section name="Init">
+        <v:asset.style name="foundation.css"    path="typo3conf/ext/{f:format.case(value: settings.extName, mode: 'lower')}/Resources/Public/{settings.extName}/css/app.css" external="true" standalone="true"/>
+        <v:asset.style name="overwrites.css"    path="typo3conf/ext/{f:format.case(value: settings.extName, mode: 'lower')}/Resources/Public/{settings.extName}/css/overwrites.css" external="true" standalone="true" dependencies="foundation.css"/>
+        <v:asset.style name="lightbox2.css"     path="typo3conf/ext/{f:format.case(value: settings.extName, mode: 'lower')}/Resources/Public/Lightbox2/css/lightbox.css" external="true" standalone="true"/>
+        <v:asset.style name="cookieconsent.css" path="typo3conf/ext/{f:format.case(value: settings.extName, mode: 'lower')}/Resources/Public/CookieConsent/cookieconsent.min.css" external="true" standalone="true"/>
+
+        <v:asset.script name="jQuery.js"        path="typo3conf/ext/{f:format.case(value: settings.extName, mode: 'lower')}/Resources/Public/{settings.extName}/bower_components/jquery/dist/jquery.min.js" external="true" standalone="true" movable="true"/>
+        <v:asset.script name="what-input.js"    path="typo3conf/ext/{f:format.case(value: settings.extName, mode: 'lower')}/Resources/Public/{settings.extName}/bower_components/what-input/dist/what-input.js" external="true" standalone="true" movable="true" dependencies="jQuery.js"/>
+        <v:asset.script name="foundation.js"    path="typo3conf/ext/{f:format.case(value: settings.extName, mode: 'lower')}/Resources/Public/{settings.extName}/bower_components/foundation-sites/dist/js/foundation.min.js" external="true" standalone="true" movable="true" dependencies="jQuery.js"/>
+        <v:asset.script name="lightbox.js"      path="typo3conf/ext/{f:format.case(value: settings.extName, mode: 'lower')}/Resources/Public/Lightbox2/js/lightbox.min.js" external="true" standalone="true" movable="true" dependencies="jQuery.js"/>
+        <v:asset.script name="cookieconsent.js" path="typo3conf/ext/{f:format.case(value: settings.extName, mode: 'lower')}/Resources/Public/CookieConsent/cookieconsent.min.js" external="true" standalone="true" movable="true" dependencies="jQuery.js"/>
+        <v:asset.script name="app.js"           path="typo3conf/ext/{f:format.case(value: settings.extName, mode: 'lower')}/Resources/Public/{settings.extName}/js/app.js" external="true" standalone="true" movable="true" dependencies="jQuery.js"/>
+
+    </f:section>
+
+    <f:section name="Nav">
+        <nav class="top-bar" id="main-menu">
+            <div class="row column">
+                <div class="mainnav title-bar-left show-for-small-only">
+                    <span class="title-bar-title">
+                        <button type="button" class="menu-icon light" data-toggle="offCanvas"></button>
+                        <button type="button" data-toggle="offCanvas">Menü</button>
+                    </span>
+                </div>
+
+                <div class="top-bar hide-for-small-only">
+                    <div class="top-bar-left">
+                        <f:render partial="Menu/Foundation6Menu" section="SubMenuMenu" arguments="{startUID: 1, class: 'horizontal'}"/>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </f:section>
+
+    <f:section name="Header">
+        <header class="callout large primary">
+            <div class="row column text-center">
+                <h1>MRE-IT Test Seite</h1>
+            </div>
+        </header>
+    </f:section>
+
+
+    <f:section name="Footer">
+        <footer class="callout medium primary">
+            <div class="row column text-center">
+                <p>MRE-IT Test Seite • Copyright Matthias Reinhardt 2012-2016</p>
+            </div>
+        </footer>
+    </f:section>
+
+
+</div>

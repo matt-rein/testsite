@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2017-10-12T14:31:15Z" product-name="testsite">
+		<header/>
+		<body>
+			<trans-unit id="flux.standard">
+				<source>Example page</source>
+				<target>Beispiel Seite</target>
+			</trans-unit>
+			<trans-unit id="flux.standard.description">
+				<source>Description can be entered in LLL file locallang.xlf of extension test</source>
+				<target>Die Beschreibung kann in der Datei locallang.xlf gepflegt werden. </target>
+			</trans-unit>
+			<trans-unit id="flux.example">
+				<source>Example element</source>
+				<target>Beispiel Element</target>
+			</trans-unit>
+			<trans-unit id="flux.example.description">
+				<source>Small example element</source>
+				<target>Beispiel Beschreibung</target>
+			</trans-unit>
+			<trans-unit id="flux.example.fields.settings.helloWorld">
+				<source>Example input</source>
+				<target>Beispiel</target>
+			</trans-unit>
+			<trans-unit id="testsite.ce_wizard.title">
+				<source><![CDATA[Text & Media - Foundation]]></source>
+				<target></target>
+			</trans-unit>
+			<trans-unit id="testsite.palette.grid_settings">
+				<source>Foundation Settings</source>
+				<target>Foundation Einstellungen</target>
+			</trans-unit>
+			<trans-unit id="testsite.col.mre_textmedia_foundation_grid">
+				<source>Gallery Size</source>
+				<target>Gallerie Größe</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

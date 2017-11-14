@@ -1,0 +1,26 @@
+{namespace gg=TYPO3\GenericGallery\ViewHelpers}
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+     xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers">
+
+    <f:section name="Main">
+        <a data-open="Modal{iterator.index}">
+            <f:image
+                width="500c"
+                height="500c"
+                image="{f:if(condition: '{item.imageReference}', then: '{item.imageReference}', else: '{item.image}')}"
+                title="{item.imageData.title}"
+                alt="{item.imageData.alternative}"
+                class="thumbnail"/>
+        </a>
+        <div class="reveal large" id="Modal{iterator.index}" data-reveal>
+            <div class="text-center">
+                <f:image image="{f:if(condition: '{item.imageReference}', then: '{item.imageReference}', else: '{item.image}')}"
+                        title="{item.imageData.title}"
+                        alt="{item.imageData.alternative}"/>
+            </div>
+            <button class="close-button" data-close aria-label="Close modal" type="button">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </f:section>
+</div>

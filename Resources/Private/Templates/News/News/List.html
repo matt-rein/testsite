@@ -1,0 +1,58 @@
+{namespace n=GeorgRinger\News\ViewHelpers}
+<f:layout name="General"/>
+<!--
+	=====================
+		Templates/News/List.html BLA
+
+		@import url(https://fonts.googleapis.com/css?family=Ubuntu:400,500);
+-->
+
+<f:section name="content">
+    <f:if condition="{news}">
+        <f:then>
+            <f:switch expression="{settings.templateLayout}">
+                <f:case value="1">
+                    <div class="news-teaser-view">
+                        <f:for each="{news}" as="newsItem" iteration="iterator">
+                            <f:render partial="List/ItemTeaser"
+                                      arguments="{newsItem: newsItem,settings:settings,iterator:iterator}"/>
+                        </f:for>
+                    </div>
+                </f:case>
+                <f:case value="2">
+                    <f:render partial="List/ItemBushido" section="ListBushido" arguments="{_all}"/>
+                </f:case>
+                <f:case value="3">
+                    <f:render partial="List/Bee3D" section="bee3D" arguments="{_all}"/>
+                </f:case>
+                <f:case default="TRUE">
+                    <div class="news-list-view">
+                        <f:if condition="{settings.hidePagination}">
+                            <f:then>
+                                <f:for each="{news}" as="newsItem" iteration="iterator">
+                                    <f:render partial="List/Item"
+                                              arguments="{newsItem: newsItem,settings:settings,iterator:iterator}"/>
+                                </f:for>
+                            </f:then>
+                            <f:else>
+                                <n:widget.paginate objects="{news}" as="paginatedNews"
+                                                   configuration="{settings.list.paginate}"
+                                                   initial="{offset:settings.offset,limit:settings.limit}">
+                                    <f:for each="{paginatedNews}" as="newsItem" iteration="iterator">
+                                        <f:render partial="List/Item"
+                                                  arguments="{newsItem: newsItem,settings:settings,iterator:iterator}"/>
+                                    </f:for>
+                                </n:widget.paginate>
+                            </f:else>
+                        </f:if>
+                    </div>
+                </f:case>
+            </f:switch>
+        </f:then>
+        <f:else>
+            <div class="no-news-found">
+                <f:translate key="list_nonewsfound"/>
+            </div>
+        </f:else>
+    </f:if>
+</f:section>

@@ -1,0 +1,24 @@
+TCEMAIN {
+	permissions {
+		groupid = 1
+		group = show,edit,delete,new,editcontent
+
+		userid = 1
+		user = show,edit,delete,new,editcontent
+
+	    everybody = show,edit,editcontent
+	 }
+}
+
+mod.wizards.newContentElement.wizardItems.common.show := removeFromList(bullets,textpic,image)
+
+tx_news.templateLayouts {
+	1  = Liste nur Teaser
+	2  = Liste komplette News
+	3  = Slider Liste
+	21 = Details mit Slider
+	99 = default
+}
+
+RTE.default.preset = custom1
+RTE.tx_flux.preset = custom1

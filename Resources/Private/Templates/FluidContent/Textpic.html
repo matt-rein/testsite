@@ -1,0 +1,83 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+<f:section name="Header">
+    <f:if condition="{gallery.position.noWrap} == FALSE">
+        <f:render partial="Header/All" arguments="{_all}" />
+    </f:if>
+</f:section>
+
+<f:section name="Main">
+    <f:spaceless>
+    <f:comment>
+        <f:debug>{gallery}</f:debug>
+        <f:debug>{grid}</f:debug>
+        <f:debug>{data}</f:debug>
+    </f:comment>
+        <div class="row columns ce-textpic">
+            <f:if condition="{gallery.count.files} != 0">
+                <f:then>
+                    <f:switch expression="{gallery.position.vertical}">
+
+                        <f:case value="above">
+                            <div class="row">
+                                <div class="small-12 columns ce-gallery-{gallery.position.horizontal}{f:if(condition: data.imageborder, then: ' ce-border')} text-{gallery.position.horizontal}" data-ce-columns="{gallery.count.columns}" data-ce-images="{gallery.count.files}">
+                                    <f:render partial="Media/Gallery" arguments="{_all}" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="small-12 columns">
+                                    <f:render partial="Stuff/BodyText" section="Main" arguments="{_all}"/>
+                                </div>
+                            </div>
+                        </f:case>
+
+                        <f:case value="intext">
+                            <f:if condition="{gallery.position.noWrap} == TRUE">
+                                <f:then>
+                                    <div class="row">
+                                        <div class="{f:if(condition: '{gallery.position.horizontal} == left', then: '{grid.classes.textcol}{grid.classes.textcol_order} columns', else: '{grid.classes.textcol} columns')}">
+                                            <f:render partial="Stuff/BodyText" section="Main" arguments="{_all}"/>
+                                        </div>
+                                        <div class="{f:if(condition: '{gallery.position.horizontal} == left', then: '{grid.classes.imagecol}{grid.classes.imagecol_order} columns', else: '{grid.classes.imagecol} columns')}">
+                                            <f:render partial="Media/Gallery" arguments="{_all}" />
+                                        </div>
+                                    </div>
+                                </f:then>
+                                <f:else>
+                                    <div class="row">
+                                        <div class="small-12 columns">
+                                            <div class="float-{gallery.position.horizontal} ce-gallery-inline-{gallery.position.horizontal}" style="width: {grid.gallery.width};" data-ce-columns="{gallery.count.columns}" data-ce-images="{gallery.count.files}">
+                                                <f:render partial="Media/Gallery" arguments="{_all}" />
+                                            </div>
+                                            <f:render partial="Stuff/BodyText" section="Main" arguments="{_all}"/>
+                                        </div>
+                                    </div>
+                                </f:else>
+                            </f:if>
+                        </f:case>
+
+                        <f:case value="below">
+                            <div class="row">
+                                <div class="small-12 columns">
+                                    <f:render partial="Stuff/BodyText" section="Main" arguments="{_all}"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="small-12 columns ce-gallery-{gallery.position.horizontal}{f:if(condition: data.imageborder, then: ' ce-border')} text-{gallery.position.horizontal}" data-ce-columns="{gallery.count.columns}" data-ce-images="{gallery.count.files}">
+                                    <f:render partial="Media/Gallery" arguments="{_all}" />
+                                </div>
+                            </div>
+                        </f:case>
+                    </f:switch>
+
+                </f:then>
+                <f:else>
+                    <f:render partial="Stuff/BodyText" section="Main" arguments="{_all}"/>
+                </f:else>
+            </f:if>
+        </div>
+    </f:spaceless>
+</f:section>
+
+</html>

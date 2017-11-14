@@ -1,0 +1,35 @@
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+     xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+     xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+     xmlns:flux="http://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers">
+
+    <f:layout name="Content" />
+
+    <f:section name="Configuration">
+        <flux:form id="BlockGrids" description="Basic elemnent to create BlockGrids" label="Basic BlockGrids">
+            <flux:form.option name="icon" value="{f:uri.resource(path: 'Icons/icon-blockgrid.png')}" />
+            <flux:form.option name="group" value="Testsite" />
+
+            <flux:grid>
+                <flux:grid.row>
+                    <flux:grid.column name="content" label="Content to list">
+                    </flux:grid.column>
+                </flux:grid.row>
+            </flux:grid>
+        </flux:form>
+    </f:section>
+
+    <f:section name="Preview">
+        nix
+    </f:section>
+
+    <f:section name="Main">
+        <div class="row small-up-1 medium-up-2 large-up-3">
+            <flux:content.render area="content" as="listContents" render="1">
+                <f:for each="{listContents}" as="listContent">
+                    <div class="column"><f:format.raw>{listContent}</f:format.raw></div>
+                </f:for>
+            </flux:content.render>
+        </div>
+    </f:section>
+</div>
