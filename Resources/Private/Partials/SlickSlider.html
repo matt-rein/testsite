@@ -1,0 +1,36 @@
+<html	xmlns="http://www.w3.org/1999/xhtml" lang="en"
+		 xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+		 xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+		 xmlns:flux="http://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers">
+
+<head>
+	<title>Partitals: Slick Slider from all Images on path</title>
+</head>
+<body>
+
+<f:section name="ListFiles">
+	<v:asset.script content="header" path="typo3conf/ext/mrebaukasten/Resources/Public/Modules/SlickSlider/slick/slick.js" external="true" standalone="true" movable="true"/>
+	<v:asset.style path="typo3conf/ext/mrebaukasten/Resources/Public/Modules/SlickSlider/slick/slick.css" external="true" standalone="true"/>
+	<v:asset.style path="typo3conf/ext/mrebaukasten/Resources/Public/Modules/SlickSlider/slick/slick-theme.css" external="true" standalone="true"/>
+	<v:asset.script allowMoveToFooter="true">
+		$(document).ready(function(){
+		$('.slider').slick({
+		dots: true,
+		infinite: false,
+		speed: 1500,
+		fade: true,
+		slidesToShow: 1,
+		autoplay: true,
+		autoplaySpeed: 5000
+		});
+		});
+	</v:asset.script>
+	<div class="slider" style="width: 100%;">
+		<f:for each="{v:media.files(path: 'typo3conf/ext/mrebaukasten/Resources/Public/FrischGeknippst/img/Meer/', extensionList: 'jpg, png, gif', prependPath:'false')}" as="imgpath">
+			<div><img src="typo3conf/ext/mrebaukasten/Resources/Public/FrischGeknippst/img/Meer/{imgpath}" alt="{imgpath}" width="100%"/></div>
+		</f:for>
+	</div>
+</f:section>
+
+</body>
+</html>

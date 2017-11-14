@@ -1,0 +1,47 @@
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+	xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+	xmlns:flux="http://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers"
+	xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers">
+
+	<f:layout name="Content" />
+
+	<f:section name="Configuration">
+		<flux:form id="trainer" options="{group: 'Testsite'}" label="Trainer" description="Trainer Details">
+
+			<flux:field.input name="settings.trainer" required="true" label="Name des Trainers"/>
+			<flux:field.file  name="settings.trainerImage" label="Bild des Trainers" allowed="jpg, png, gif"/>
+            <flux:field.input name="settings.jahrgang" label="Jahrgang"/>
+            <flux:field.input name="settings.grad" label="Grad"/>
+            <flux:field.text  name="settings.beschreibung" enableRichText="true" label="Beschreibung"/>
+		</flux:form>
+	</f:section>
+
+	<f:section name="Preview">
+		<!-- If you wish, place custom backend preview content here -->
+		<strong>Trainer:</strong><br />
+		{settings.trainer}
+	</f:section>
+
+	<f:section name="Main">
+        <div class="row trainer">
+            <div class="small-3 column">
+                <f:if condition="{settings.trainerImage}">
+                    <f:then>
+                        <f:image src="{settings.trainerImage}" alt="{settings.headline}"/>
+
+                    </f:then>
+                    <f:else>
+                        <img src="/typo3conf/ext/testsite/Resources/Public/Icons/dummy-person-male.png" class="round" width="100px" height="100px" alt="Dummy-Bild – kein Bild ausgewählt">
+                    </f:else>
+                </f:if>
+            </div>
+            <div class="small-9 column">
+                <f:if condition="{settings.trainer}"><p><b>{settings.trainer}</b></p></f:if>
+                <f:if condition="{settings.jahrgang}"><p>Jahrgang: {settings.jahrgang}</p></f:if>
+                <f:if condition="{settings.grad}"><p>{settings.grad}</p></f:if>
+                <f:if condition="{settings.beschreibung}"><f:format.html>{settings.beschreibung}</f:format.html></f:if>
+
+            </div>
+        </div>
+	</f:section>
+</div>

@@ -1,0 +1,33 @@
+{namespace n=GeorgRinger\News\ViewHelpers}
+<!--
+	=====================
+		Partials/List/ItemTeaser.html
+-->
+<div class="article articletype-{newsItem.type}{f:if(condition: newsItem.istopnews, then: ' topnews')}">
+    <n:excludeDisplayedNews newsItem="{newsItem}" />
+    <!-- header MRE -->
+    <div class="header">
+        <h2>{newsItem.title}</h2>
+    </div>
+
+    <!-- teas=ser text -->
+    <div class="teaser-text">
+		<f:if condition="settings.cropMaxCharactersTeaser">
+			<f:then>
+				<f:format.html><f:format.crop maxCharacters="{settings.cropMaxCharactersTeaser}" respectWordBoundaries="1">{newsItem.bodytext}</f:format.crop></f:format.html>
+			</f:then>
+			<f:else>
+				<f:format.html><f:format.crop maxCharacters="{settings.cropMaxCharacters}" respectWordBoundaries="1">{newsItem.bodytext}</f:format.crop></f:format.html>
+			</f:else>
+		</f:if>
+
+		<f:if condition="settings.listPid">
+			<f:then>
+				<p><f:link.page pageUid="{settings.listPid}" class="more"><f:translate key="more-link" /></f:link.page></p>
+			</f:then>
+		</f:if>
+    </div>
+
+    <!-- footer information -->
+    <div class="footer"></div>
+</div>
