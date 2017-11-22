@@ -87,30 +87,27 @@ page {
 	shortcutIcon = typo3conf/ext/testsite/Resources/Public/Icons/ICON_32x32_Logo.ico
 
     includeCSS {
-        foundationBase              = typo3conf/ext/testsite/Resources/Public/Testsite/css/app.css
+        foundationBase              = EXT:testsite/Resources/Public/Testsite/css/app.css
         foundationBase.title        = Foundation Base
-        foundationOverwrites        = typo3conf/ext/testsite/Resources/Public/Testsite/css/overwrites.css
+        foundationOverwrites        = EXT:testsite/Resources/Public/Testsite/css/overwrites.css
         foundationOverwrites.title  = Foundation Overwrites
-        lightbox2                   = typo3conf/ext/testsite/Resources/Public/Lightbox2/css/lightbox.css
+        lightbox2                   = EXT:testsite/Resources/Public/Lightbox2/css/lightbox.css
         lightbox2.title             = Lightbox
-        cookieconsent2              = typo3conf/ext/testsite/Resources/Public/CookieConsent/cookieconsent.min.css
-        cookieconsent2.titel        = CookieConsent 2
     }
     includeJS {
 
     }
     includeJSFooter {
-        jQuery                      = typo3conf/ext/testsite/Resources/Public/Testsite/bower_components/jquery/dist/jquery.min.js
+        jQuery                      = EXT:testsite/Resources/Public/Testsite/bower_components/jquery/dist/jquery.min.js
         jQuery.title                = jQuery Base
-        whatsInput                  = typo3conf/ext/testsite/Resources/Public/Testsite/bower_components/what-input/dist/what-input.js
+        whatsInput                  = EXT:testsite/Resources/Public/Testsite/bower_components/what-input/dist/what-input.js
         whatsInput.title            = Whats Input
-        foundationJS                = typo3conf/ext/testsite/Resources/Public/Testsite/bower_components/foundation-sites/dist/js/foundation.min.js
+        foundationJS                = EXT:testsite/Resources/Public/Testsite/bower_components/foundation-sites/dist/js/foundation.min.js
         foundationJS.title          = Foundation
-        lightbox                    = typo3conf/ext/testsite/Resources/Public/Lightbox2/js/lightbox.min.js
+        lightbox                    = EXT:testsite/Resources/Public/Lightbox2/js/lightbox.min.js
         lightbox.title              = Lightbox
-        cookieconsentBase           = typo3conf/ext/testsite/Resources/Public/CookieConsent/cookieconsent.min.js
-        cookieconsentBase.title     = CookieConsent 2 Basis
-        app                         = typo3conf/ext/testsite/Resources/Public/Testsite/js/app.js
+
+        app                         = EXT:testsite/Resources/Public/Testsite/js/app.js
     }
 
 }
