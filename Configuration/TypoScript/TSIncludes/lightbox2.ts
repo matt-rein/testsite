@@ -1,0 +1,1 @@
+lib.contentElement.settings.media.popup.linkParams.ATagParams.dataWrap = data-lightbox="lightbox[{field:uid}]"
