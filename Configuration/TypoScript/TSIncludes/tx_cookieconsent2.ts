@@ -21,7 +21,6 @@ page {
 
     includeCSS {
         cookieconsent2 = EXT:testsite/Resources/Public/CookieConsent/cookieconsent.min.css
-        cookieconsent2.titel = CookieConsent 2
     }
 
     includeJSFooter {
