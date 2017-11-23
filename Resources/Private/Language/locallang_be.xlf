@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-10-15T07:08:14Z"
+		  product-name="cookieconsent2">
+		<header/>
+		<body>
+			<trans-unit id="subcategory.100">
+				<source>Theme</source>
+			</trans-unit>
+			<trans-unit id="subcategory.110">
+				<source>Configuration</source>
+			</trans-unit>
+			<trans-unit id="feature.disableTypoScriptAutoloading">
+				<source>TypoScript Configuration: Disable autoloading of constants and setup</source>
+			</trans-unit>
+			<trans-unit id="settings.link">
+				<source>Link: The url/page uid of your cookie policy. If it’s unset, the link is hidden.</source>
+			</trans-unit>
+			<trans-unit id="settings.theme">
+				<source>Theme: The theme you wish to use. Options: dark-top/dark-floating/dark-bottom/light-top/light-floating/light-bottom oder URL to a CSS file. Leave empty to use your own CSS files.</source>
+			</trans-unit>
+			<trans-unit id="settings.container">
+				<source>CSS Selector: The element you want the Cookie Consent notification to be appended to.</source>
+			</trans-unit>
+			<trans-unit id="settings.path">
+				<source>Path: The path for the consent cookie to remember that users have consented to cookies.</source>
+			</trans-unit>
+			<trans-unit id="settings.domain">
+				<source>Domain: The domain for the consent cookie to remember that users have consented to cookies.</source>
+			</trans-unit>
+			<trans-unit id="settings.expiryDays">
+				<source>Days: The number of days to remember the user’s consent information for.</source>
+			</trans-unit>
+			<trans-unit id="view.templateRootPath">
+				<source>Templates: Path to template root (FE)</source>
+			</trans-unit>
+			<trans-unit id="view.partialRootPath">
+				<source>Partials: Path to template partials (FE)</source>
+			</trans-unit>
+			<trans-unit id="view.layoutRootPath">
+				<source>Layouts: Path to template layouts (FE)</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

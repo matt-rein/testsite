@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2017-10-12T14:31:15Z" product-name="testsite">
+	<file source-language="en" datatype="plaintext" original="messages" date="2017-11-23T09:55:03Z" product-name="testsite">
 		<header/>
 		<body>
 			<trans-unit id="flux.standard">
@@ -26,6 +26,12 @@
 			</trans-unit>
 			<trans-unit id="testsite.col.mre_textmedia_foundation_grid">
 				<source>Gallery Size</source>
+			</trans-unit>
+			<trans-unit id="cookieConsentMessage">
+				<source>This website uses cookies to ensure you get the best experience on our website.</source>
+			</trans-unit>
+			<trans-unit id="cookieConsentDismiss">
+				<source>Got it!</source>
 			</trans-unit>
 		</body>
 	</file>

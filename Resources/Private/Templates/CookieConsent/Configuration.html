@@ -1,11 +1,25 @@
-window.cookieconsent_options = <![CDATA[{]]>
-    message: '{f:translate(key: "cookieConsentMessage", extensionName: "testsite")}',
-    learnMore: '{f:translate(key: "cookieConsentLearnMore", extensionName: "testsite")}',
-    dismiss: '{f:translate(key: "cookieConsentDismiss", extensionName: "testsite")}',
-    container: '{settings.container}',
-    path: '{settings.path}',
-    expiryDays: {settings.expiryDays},
-    <f:if condition="{settings.cookieconsent.link}">link: '{f:uri.page(pageUid: settings.cookieconsent.link, absolute: 1)}',</f:if>
-    <f:if condition="{settings.cookieconsent.theme}"><f:then>theme: '{settings.cookieconsent.theme}',</f:then><f:else>theme: false</f:else></f:if>
-    <f:if condition="{settings.cookieconsent.domain}">domain: '{settings.cookieconsent.domain}',</f:if>
-};
+window.addEventListener("load", function(){
+    window.cookieconsent.initialise({
+        palette: {
+            popup: {
+                background: '#000'
+            },
+            button: {
+                background: '#f1d600'
+            }
+        },
+        content: {
+            message: "<f:translate key="cookieConsentMessage" extensionName="testsite"/>",
+            learnMore: "<f:translate key="cookieConsentLearnMore" extensionName="testsite"/>",
+            dismiss: "<f:translate key="cookieConsentDismiss" extensionName="testsite"/>",
+            link: "<f:uri.page pageUid="settings.cookieconsent.link" absolute="true"/>",
+            showLink: false,
+            theme: "{settings.cookieconsent.theme}",
+            container: "{settings.cookieconsent.container}",
+            path: "{settings.cookieconsent.path}",
+            expiryDays: "{settings.cookieconsent.expiryDays}"
+        },
+        position: "bottom-left"
+    });
+
+});

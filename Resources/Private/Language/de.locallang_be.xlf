@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2015-10-15T07:08:14Z"
+		  product-name="cookieconsent2">
+		<header/>
+		<body>
+			<trans-unit id="subcategory.100">
+				<source>Theme</source>
+				<target>Theme</target>
+			</trans-unit>
+			<trans-unit id="subcategory.110">
+				<source>Configuration</source>
+				<target>Konfiguration</target>
+			</trans-unit>
+			<trans-unit id="feature.disableTypoScriptAutoloading">
+				<source>TypoScript Configuration: Disable autoloading of constants and setup</source>
+				<target>TypoScript Konfiguration: Konstanten und Setup nicht automatisch laden</target>
+			</trans-unit>
+			<trans-unit id="settings.link">
+				<source>Link: The url/page uid of your cookie policy. If it’s unset, the link is hidden.</source>
+				<target>Link: Die URL/Seiten-ID zur Datenschutzerklärung. Leer lassen um den Link nicht anzuzeigen.</target>
+			</trans-unit>
+			<trans-unit id="settings.theme">
+				<source>Theme: The theme you wish to use. Options: dark-top/dark-floating/dark-bottom/light-top/light-floating/light-bottom oder URL to a CSS file. Leave empty to use your own CSS files.</source>
+				<target>Theme: Das zu verwendende Theme. Optionen: dark-top/dark-floating/dark-bottom/light-top/light-floating/light-bottom oder URL zu einer CSS Datei. Leer lassen um keine CSS Datei einzubinden.</target>
+			</trans-unit>
+			<trans-unit id="settings.container">
+				<source>CSS Selector: The element you want the Cookie Consent notification to be appended to.</source>
+				<target>CSS Selektor: Wählt das Element an welches die Meldung angehängt wird.</target>
+			</trans-unit>
+			<trans-unit id="settings.path">
+				<source>Cookie path: The path for the consent cookie to remember that users have consented to cookies.</source>
+				<target>Cookie Pfad: Der Pfad für den Cookie um die Akzeptanz der Cookies durch den Benutzer zu speichern.</target>
+			</trans-unit>
+			<trans-unit id="settings.domain">
+				<source>Domain: The domain for the consent cookie to remember that users have consented to cookies.</source>
+				<target>Domain: Der Domain für den Cookie um die Akzeptanz der Cookies durch den Benutzer zu speichern.</target>
+			</trans-unit>
+			<trans-unit id="settings.expiryDays">
+				<source>Days: The number of days to remember the user’s consent information for.</source>
+				<target>Tage: Anzahl der Tage für die die Entscheidung des Benutzer Cookies zu akzeptieren gespeichert werden soll.</target>
+			</trans-unit>
+			<trans-unit id="view.templateRootPath">
+				<source>Templates: Path to template root (FE)</source>
+				<target>Templates: Wurzel-Verzeichnis für Template Dateien</target>
+			</trans-unit>
+			<trans-unit id="view.partialRootPath">
+				<source>Partials: Path to template partials (FE)</source>
+				<target>Partials: Pfad zu Template Partials</target>
+			</trans-unit>
+			<trans-unit id="view.layoutRootPath">
+				<source>Layouts: Path to template layouts (FE)</source>
+				<target>Layouts: Pfad zu Template Layouts</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

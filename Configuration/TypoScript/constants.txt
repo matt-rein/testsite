@@ -7,7 +7,7 @@ plugin.tx_testsite {
     settings {
         cookieconsent {
             # cat=cookie consent: basic/110/100; type=string; label=LLL:EXT:testsite/Resources/Private/Language/locallang_be.xlf:settings.link
-            link =
+            link = 1
             # cat=cookie consent: basic/100/110; type=string; label=LLL:EXT:testsite/Resources/Private/Language/locallang_be.xlf:settings.theme
             theme = dark-bottom
             # cat=cookie consent: advanced/100/100; type=string; label=LLL:EXT:testsite/Resources/Private/Language/locallang_be.xlf:settings.container
