@@ -34,9 +34,5 @@ use FluidTYPO3\Fluidpages\Controller\PageController as AbstractController;
  */
 class PageController extends AbstractController {
 
-
-    public function standardAction() {
-
-    }
-
+   
 }

@@ -47,8 +47,8 @@
   .ce-gallery-center {}
   .ce-gallery-right {}
 
-  .ce-gallery-inline-right {padding-left:  gutter(small);}
-  .ce-gallery-inline-left  {padding-right: gutter(small);}
+  .ce-gallery-inline-right {padding-left:  gutter(small); float: right;}
+  .ce-gallery-inline-left  {padding-right: gutter(small); float: left;}
 
   .ce-border {margin-top: 1px;}
   .ce-border img, .ce-border iframe {@include thumbnail; margin: 1px;}

@@ -8,14 +8,7 @@ page {
             partialRootPath = {$plugin.tx_testsite.view.partialRootPath}
             layoutRootPath = {$plugin.tx_testsite.view.layoutRootPath}
 
-            settings.cookieconsent {
-                link = {$plugin.tx_testsite.settings.cookieconsent.link}
-                container = {$plugin.tx_testsite.settings.cookieconsent.container}
-                theme = {$plugin.tx_testsite.settings.cookieconsent.theme}
-                path = {$plugin.tx_testsite.settings.cookieconsent.path}
-                domain = {$plugin.tx_testsite.settings.cookieconsent.domain}
-                expiryDays = {$plugin.tx_testsite.settings.cookieconsent.expiryDays}
-            }
+
         }
     }
 

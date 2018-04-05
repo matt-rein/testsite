@@ -1,25 +1,29 @@
-window.addEventListener("load", function(){
-    window.cookieconsent.initialise({
-        palette: {
-            popup: {
-                background: '#000'
-            },
-            button: {
-                background: '#f1d600'
-            }
-        },
-        content: {
-            message: "<f:translate key="cookieConsentMessage" extensionName="testsite"/>",
-            learnMore: "<f:translate key="cookieConsentLearnMore" extensionName="testsite"/>",
-            dismiss: "<f:translate key="cookieConsentDismiss" extensionName="testsite"/>",
-            link: "<f:uri.page pageUid="settings.cookieconsent.link" absolute="true"/>",
-            showLink: false,
-            theme: "{settings.cookieconsent.theme}",
-            container: "{settings.cookieconsent.container}",
-            path: "{settings.cookieconsent.path}",
-            expiryDays: "{settings.cookieconsent.expiryDays}"
-        },
-        position: "bottom-left"
-    });
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+     xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+     xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers">
 
-});
+    <v:asset.script>
+        window.addEventListener("load", function(){
+            window.cookieconsent.initialise({
+                palette: {
+                    popup: {
+                        background: '#edeff5',
+                        text: '#444444'
+                    },
+                    button: {
+                        background: '#0000e1',
+                         text:       '#fefefe'
+                    },
+                },
+                position: 'bottom',
+                theme: 'edgeless',
+                content: {
+                    message: '<f:translate key="cookieConsentMessage" extensionName="testsite"/>',
+                    dismiss: '<f:translate key="cookieConsentDismiss" extensionName="testsite"/>',
+                    link:    '<f:translate key="cookieConsentLinkText" extensionName="testsite"/>',
+                    href:    '<f:uri.page pageUid="settings.cookieconsent.link" absolute="true"/>',
+                },
+            });
+        });
+    </v:asset.script>
+</html>

@@ -77,14 +77,14 @@ class GridProcessor implements DataProcessorInterface
 
         $processedData['grid'] = [
             'classes' => [
-                'textcol'  => ($textColumnSize ? 'small-12 medium-' . $textColumnSize : 'small-12'),
+                'textcol'  => ($textColumnSize ? 'medium-' . $textColumnSize : ''),
                 'textcol_order' => ($textColumnSize ? ' medium-push-' . $imageColumnSize : ''),
-                'imagecol' => ($imageColumnSize ? 'small-12 medium-' . $imageColumnSize : 'small-12'),
+                'imagecol' => ($imageColumnSize ? 'medium-' . $imageColumnSize : ''),
                 'imagecol_order' => ($imageColumnSize ? ' medium-pull-' . $textColumnSize : ''),
                 'imgwidth' => 'width: '.($imgColumnWidth).'%',
                 'imagecol_offset_leftover' => ($imageColumnSizeLeftover ? ' medium-offset-' . $imageColumnSizeLeftover : ''),
                 'imagecol_offset_leftover_half' => ($imageColumnSizeLeftoverHalf > 0 ? ' medium-offset-' . $imageColumnSizeLeftoverHalf : ''),
-                'gallerycol' => ($galleryColumnSize ? 'small-12 medium-' . $galleryColumnSize : 'small-12')
+                'gallerycol' => ($galleryColumnSize ? 'medium-' . $galleryColumnSize : '')
             ],
             'gallery' => [
                 'width' => ($imgColumnWidth).'%'

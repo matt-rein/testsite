@@ -1,8 +1,8 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:layout name="Default" />
 <f:section name="Main">
-    <div class="row">
-        <div class="small-12 columns ce-gallery-{gallery.position.horizontal}{f:if(condition: data.imageborder, then: ' ce-border')} text-{gallery.position.horizontal}" data-ce-columns="{gallery.count.columns}" data-ce-images="{gallery.count.files}">
+    <div class="grid-x">
+        <div class="cell ce-gallery-{gallery.position.horizontal}{f:if(condition: data.imageborder, then: ' ce-border')} text-{gallery.position.horizontal}" data-ce-columns="{gallery.count.columns}" data-ce-images="{gallery.count.files}">
             <f:render partial="Media/Gallery" arguments="{_all}" />
         </div>
     </div>

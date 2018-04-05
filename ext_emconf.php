@@ -15,8 +15,8 @@ $EM_CONF[$_EXTKEY] = array(
 	'description' => 'Test seite für diverse extensions.',
 	'category' => 'misc',
 	'shy' => 0,
-	'version' => '0.4.231117',
-	'dependencies' => 'typo3,flux,fluidpages,fluidcontent,vhs',//,go_maps_ext',
+	'version' => '0.6.210318',
+	'dependencies' => 'typo3,flux,vhs',
 	'conflicts' => '',
 	'priority' => '',
 	'loadOrder' => '',
@@ -34,12 +34,9 @@ $EM_CONF[$_EXTKEY] = array(
 	'CGLcompliance_note' => '',
 	'constraints' => array(
 		'depends' => array(
-			'typo3' => '7.6-8.7.99',
+			'typo3' => '8.7',
 			'flux' => '',
-			'fluidpages' => '',
-			'fluidcontent' => '',
 			'vhs' => '',
-            //'go_maps_ext' => '',
 		),
 		'conflicts' => array(
 		),

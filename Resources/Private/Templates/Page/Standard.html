@@ -18,12 +18,14 @@
     </f:section>
 
     <f:section name="Main">
-        <main class="row">
-            <div class="medium-8 columns">
-                <v:content.render column="1"/>
-            </div>
-            <div class="medium-3 columns" data-sticky-container>
-                <v:content.render column="2"/>
+        <main class="grid-container">
+            <div class="grid-x">
+                <div class="medium-8 cell">
+                    <v:content.render column="1"/>
+                </div>
+                <div class="medium-3 cell" data-sticky-container>
+                    <v:content.render column="2"/>
+                </div>
             </div>
         </main>
     </f:section>

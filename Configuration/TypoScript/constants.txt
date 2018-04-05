@@ -5,20 +5,7 @@ plugin.tx_testsite {
         layoutRootPath = EXT:testsite/Resources/Private/Layouts/
     }
     settings {
-        cookieconsent {
-            # cat=cookie consent: basic/110/100; type=string; label=LLL:EXT:testsite/Resources/Private/Language/locallang_be.xlf:settings.link
-            link = 1
-            # cat=cookie consent: basic/100/110; type=string; label=LLL:EXT:testsite/Resources/Private/Language/locallang_be.xlf:settings.theme
-            theme = dark-bottom
-            # cat=cookie consent: advanced/100/100; type=string; label=LLL:EXT:testsite/Resources/Private/Language/locallang_be.xlf:settings.container
-            container = body
-            # cat=cookie consent: advanced/110/100; type=string; label=LLL:EXT:testsite/Resources/Private/Language/locallang_be.xlf:settings.path
-            path = /
-            # cat=cookie consent: advanced/110/110; type=string; label=LLL:EXT:testsite/Resources/Private/Language/locallang_be.xlf:settings.domain
-            domain =
-            # cat=cookie consent: advanced/110/120; type=string; label=LLL:EXT:testsite/Resources/Private/Language/locallang_be.xlf:settings.expiryDays
-            expiryDays = 365
-        }
+
     }
 }
 

@@ -25,14 +25,11 @@ namespace MREIT\Testsite\Controller;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-use FluidTYPO3\Fluidcontent\Controller\ContentController as AbstractController;
+use FluidTYPO3\Flux\Controller\ContentController as AbstractFluxController;
 
-/**
- * Content Controller
- *
- * @route off
- */
-class ContentController extends AbstractController {
+
+class ContentController extends AbstractFluxController
+{
 
 
 }

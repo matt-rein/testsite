@@ -1,6 +1,6 @@
 /**
  * Foundation for Sites by ZURB
- * Version 6.3.1
+ * Version 6.4.3
  * foundation.zurb.com
  * Licensed under MIT Open Source
  */
@@ -31,10 +31,12 @@ main {
   content: '\00bb'; }
 
 .ce-gallery-inline-right {
-  padding-left: 20px; }
+  padding-left: 20px;
+  float: right; }
 
 .ce-gallery-inline-left {
-  padding-right: 20px; }
+  padding-right: 20px;
+  float: left; }
 
 .ce-border {
   margin-top: 1px; }
